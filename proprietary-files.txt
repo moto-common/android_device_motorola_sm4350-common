@@ -1,3 +1,26 @@
+# ACDB Loader
+vendor/lib/libacdb-fts.so
+vendor/lib/libacdbloader.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libadm.so
+vendor/lib/libaudcal.so
+vendor/lib/libaudioalsa.so
+vendor/lib/libaudioconfigstore.so
+vendor/lib/libaudioparsers.so
+vendor/lib/libdrc.so
+vendor/lib/libqtigef.so
+vendor/lib/libsurround_3mic_proc.so
+vendor/lib64/libacdb-fts.so
+vendor/lib64/libacdbloader.so
+vendor/lib64/libacdbrtac.so
+vendor/lib64/libadiertac.so
+vendor/lib64/libaudcal.so
+vendor/lib64/libaudioalsa.so
+vendor/lib64/libaudioconfigstore.so
+vendor/lib64/libaudioparsers.so
+vendor/lib64/libqtigef.so
+
 # Adreno Firmware - from SRE32.64
 vendor/firmware/a619_gmu.bin
 vendor/firmware/a630_sqe.fw
@@ -258,7 +281,6 @@ vendor/etc/init/imsdaemon.rc
 vendor/etc/init/init-qcril-data.rc
 vendor/etc/init/ipa_fws.rc
 vendor/etc/init/ipacm-diag.rc
-vendor/etc/init/ipacm.rc
 vendor/etc/init/mutualex.rc
 vendor/etc/init/netmgrd.rc
 vendor/etc/init/port-bridge.rc

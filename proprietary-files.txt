@@ -642,4 +642,6 @@ vendor/etc/sensors/sns_reg_config
 
 # Sensors
 vendor/lib/sensors.moto.so
+vendor/lib/sensors.ssc.so
 vendor/lib64/sensors.moto.so
+vendor/lib64/sensors.ssc.so

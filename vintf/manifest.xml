@@ -1,0 +1,26 @@
+<manifest version="2.0" type="device" target-level="5">
+    <hal format="hidl" optional="true">
+        <name>vendor.trustonic.tee.tui</name>
+        <version>1.0</version>
+        <interface>
+            <name>ITui</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.trustonic.tee</name>
+        <version>1.0-1</version>
+        <interface>
+            <name>ITee</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.trustonic.teeregistry</name>
+        <version>1.0</version>
+        <interface>
+            <name>ITeeRegistry</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>

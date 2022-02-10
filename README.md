@@ -15,3 +15,4 @@ Android device configuration for the holi platform (**SM4350**).
 | Device | Codename |
 |-|:-:|
 | Moto G50 (2021) | ibiza |
+| Moto G Stylus 5G (2021) | denver |

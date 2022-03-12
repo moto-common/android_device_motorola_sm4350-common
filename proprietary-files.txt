@@ -210,7 +210,6 @@ etc/sysconfig/qti_whitelist.xml
 system_ext/app/TeeService/lib/arm64/libTeeServiceJni.so
 -system_ext/app/TeeService/TeeService.apk
 -system_ext/app/atfwd/atfwd.apk
--system_ext/app/datastatusnotification/datastatusnotification.apk
 -system_ext/app/embms/embms.apk
 system_ext/etc/permissions/embms.xml
 system_ext/etc/permissions/privapp-permissions-qti-system-ext.xml

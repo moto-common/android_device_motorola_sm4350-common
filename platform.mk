@@ -148,6 +148,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.holi
 
+# Graphics
+PRODUCT_COPY_FILES += \
+    $(MOTOROLA_ROOT)/vendor/etc/display/DPU660.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU660.xml \
+    $(MOTOROLA_ROOT)/vendor/etc/display/DPU670.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU670.xml \
+    $(MOTOROLA_ROOT)/vendor/etc/display/DPU720.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU720.xml \
+    $(MOTOROLA_ROOT)/vendor/etc/display/DPU7__.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU7__.xml \
+    $(MOTOROLA_ROOT)/vendor/etc/display/advanced_sf_offsets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/advanced_sf_offsets.xml \
+    $(MOTOROLA_ROOT)/vendor/etc/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
+
 # Sensors init
 PRODUCT_PACKAGES += \
     sscrpcd.rc \

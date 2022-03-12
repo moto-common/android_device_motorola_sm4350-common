@@ -76,9 +76,6 @@ TARGET_NEEDS_DTBOIMAGE ?= true
 # Audio
 AUDIO_FEATURE_ENABLED_GKI := true
 
-# Display
-TARGET_USES_GRALLOC4 := true
-
 # VINTF
 DEVICE_MANIFEST_FILE += $(PLATFORM_COMMON_PATH)/vintf/manifest.xml
 DEVICE_MATRIX_FILE += $(PLATFORM_COMMON_PATH)/vintf/compatibility_manifest.xml

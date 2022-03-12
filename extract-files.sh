@@ -63,6 +63,15 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function blob_fixup() {
+    case "${1}" in
+
+      system_ext/etc/permissions/moto-telephony.xml)
+           sed -i "s#/system/#/system_ext/#" "${2}"
+           ;;
+    esac
+}
+
 # Initialize the helper.
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 

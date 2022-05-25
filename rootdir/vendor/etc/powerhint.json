@@ -241,15 +241,6 @@
       "HoldFd": true
     },
     {
-      "Name": "F2fsRecessModeEnable",
-      "Path": "/sys/fs/f2fs/sde25/gc_urgent",
-      "Values": [
-        "2",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
       "Name": "DoubleTap2WakeEnable",
       "Path": "/sys/class/sensors/dt-gesture/enable",
       "Values": [
@@ -334,12 +325,6 @@
       "Node": "CPUDDRBWMinFreq",
       "Duration": 0,
       "Value": "5931"
-    },
-    {
-      "PowerHint": "DEVICE_IDLE",
-      "Node": "F2fsRecessModeEnable",
-      "Duration": 0,
-      "Value": "2"
     },
     {
       "PowerHint": "LAUNCH",

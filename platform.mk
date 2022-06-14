@@ -34,16 +34,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Camera
 TARGET_USES_64BIT_CAMERA := true
 
-# Keymaster
-TARGET_KEYMASTER_V4_1 := true
-
-# Vibrator
-TARGET_VIBRATOR_V1_2 := true
-
-# BT definitions for Qualcomm solution
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_QCOM := true
-TARGET_USE_QTI_BT_STACK := true
+# Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_COMMON_PATH)/bluetooth
 
 # Dynamic Partitions: Enable DP
@@ -102,24 +93,21 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(MOTOROLA_ROOT)/vendor/etc/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
     $(MOTOROLA_ROOT)/vendor/etc/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     $(MOTOROLA_ROOT)/vendor/etc/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(MOTOROLA_ROOT)/vendor/etc/audio_policy_configuration_bluetooth_legacy_hal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_bluetooth_legacy_hal.xml
 
-#PRODUCT_COPY_FILES += \
-#    $(MOTOROLA_ROOT)/vendor/etc/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf
-
 # Media
 PRODUCT_COPY_FILES += \
-    $(MOTOROLA_ROOT)/vendor/etc/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(MOTOROLA_ROOT)/vendor/etc/media_codecs_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml \
-    $(MOTOROLA_ROOT)/vendor/etc/media_codecs_holi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_holi.xml \
+    $(MOTOROLA_ROOT)/vendor/etc/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(MOTOROLA_ROOT)/vendor/etc/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-    $(MOTOROLA_ROOT)/vendor/etc/media_codecs_performance_holi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_holi.xml \
     $(MOTOROLA_ROOT)/vendor/etc/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     $(MOTOROLA_ROOT)/vendor/etc/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
     $(MOTOROLA_ROOT)/vendor/etc/video_system_specs.json:$(TARGET_COPY_OUT_VENDOR)/etc/video_system_specs.json
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 # Qualcom WiFi Overlay
 PRODUCT_COPY_FILES += \
@@ -141,10 +129,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(MOTOROLA_ROOT)/vendor/etc/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
-# DPM config
-PRODUCT_COPY_FILES += \
-    $(MOTOROLA_ROOT)/vendor/etc/dpm/dpm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/dpm/dpm.conf
-
 # Platform specific init
 PRODUCT_PACKAGES += \
     ueventd
@@ -159,13 +143,7 @@ PRODUCT_COPY_FILES += \
     $(MOTOROLA_ROOT)/vendor/etc/display/DPU670.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU670.xml \
     $(MOTOROLA_ROOT)/vendor/etc/display/DPU720.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU720.xml \
     $(MOTOROLA_ROOT)/vendor/etc/display/DPU7__.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU7__.xml \
-    $(MOTOROLA_ROOT)/vendor/etc/display/advanced_sf_offsets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/advanced_sf_offsets.xml \
-    $(MOTOROLA_ROOT)/vendor/etc/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
-
-# Sensors init
-PRODUCT_PACKAGES += \
-    sscrpcd.rc \
-    sdsp-sensorspdr.rc
+    $(MOTOROLA_ROOT)/vendor/etc/display/advanced_sf_offsets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/advanced_sf_offsets.xml
 
 # Sensors
 # hardware.ssc.so links against display mappers, of which
@@ -175,15 +153,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor
 
-# Sensors
-PRODUCT_PACKAGES += \
-    sns_reg_config \
-    hals.conf
-
-# Look for camera.qcom.so instead of camera.$(BOARD_TARGET_PLATFORM).so
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.camera=qcom
-
 # QCOM Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.qcom.bluetooth.soc=cherokee
@@ -191,28 +160,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Legacy BT property (will be removed in S)
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=cherokee
-
-# Audio - QCOM HAL
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.feature.concurrent_capture.enable=true \
-    vendor.audio.feature.compress_in.enable=true
-
-# Audio - QCOM proprietary
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.adm.buffering.ms=2
-
-# USB controller setup
-PRODUCT_PROPERTY_OVERRIDES += \
-    sys.usb.controller=4e00000.dwc3 \
-    sys.usb.rndis.func.name=gsi
-
-# Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.enable_advanced_sf_phase_offset=1
-
-# External modem
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.mdm_helper.fail_action=cold_reset
 
 # Gatekeeper
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -222,15 +169,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     device/qcom/common/vendor/init/holi/bin/init.kernel.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot.sh
 
-PRODUCT_PACKAGES += \
-    init.mmi.charge_only.rc \
-    init.mmi.chipset.rc \
-    init.mmi.overlay.rc \
-    init.oem.fingerprint.sh \
-    init.oem.fingerprint2.sh \
-    init.target.rc \
-    vendor_modprobe.sh
-
 PRODUCT_SOONG_NAMESPACES += device/qcom/common/vendor/init
 
 # vndservicemanager
@@ -238,6 +176,5 @@ PRODUCT_PACKAGES += \
     vndservicemanager
 
 $(call inherit-product, device/motorola/common/common.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, vendor/motorola/sm4350-common/sm4350-common-vendor.mk)

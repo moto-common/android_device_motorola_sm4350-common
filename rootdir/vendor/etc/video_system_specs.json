@@ -12,29 +12,31 @@
             "enc_csc_custom_matrix": false,
             // this enables adaptive blur if possible by encoder.
             // this is preprocessing of encoder input YUV buffers
-            "enc_auto_blur": true,
+            "enc_auto_blur": false,
             // this enables encoding rotate by C2D. it is used for some low tier end chipsets which
             // don't support rotate feature in video core. TODO - Rename as enc_vpss_rotation
-            "enc_c2d_rotation": false,
-            // target supports cvp for all encode usecases.
-            "enc_cvp_enable": true,
-            // encoder csc enable
-            "enc_csc_enable": false,
-            // perf hints support for decoder and encoder
-            "perf_control_enable": false,
+            "enc_c2d_rotation": true,
+            "platform_disable_ubwc": true,
             // It is used to enable fastCV engine for flip support in the absence of VPSS hardware
             // support.
-            "enc_vpss_flip": true,
+            "enc_vpss_flip": false,
             // This is used to limit secure usecase buffer count. Changes dynamic to static count
-            "dec_secure_static_count": false
+            "dec_secure_static_count": true
         },
         "Presets": {
+            // platform value to force HDR disable. if this value is enabled
+            // then HDR is disabled. this value acts as a bit mask.
+            //  0x0 : no over ride,
+            //  0x1 : disables decoder HDR,
+            //  0x2 : disbaled encoder HDR,
+            //  0x3 : disables both decoder and encoder HDR.
+            "vidc_disable_hdr" : 3,
             // this is used for secure decoding performance boost handling
             // prefech sizes of internal & output buffers
-            // internal : 200 MB (200 X 1)
-            // output   : 200 MB (12.5 X 16)
-            "dec_sec_prefetch_size_internal": 209715200,
-            "dec_sec_prefetch_size_output": 13434880,
+            // internal : 0 MB
+            // output   : 0 MB
+            "dec_sec_prefetch_size_internal": 0,
+            "dec_sec_prefetch_size_output": 0,
             // control to force enable linear color format for decoder
             // if this is enable, then decoder will produce linear color format output.
             // it is bitmask:
@@ -47,25 +49,9 @@
             // if it is within capability of B frame encode case
             // this is used only in MediaRecorder path
             // max B frame count between two P
-            "enc_default_bframe_count": 1,
-            // maximum MB/sec for default adaptive b-frame enablement case
-            // 3840x2160@60fps
-            "enc_adaptive_b_max_mbs_per_sec": 1944000,
-            // maximum MB/frame for default adaptive b-frame enablement case
-            // 3840x2160/256
-            "enc_adaptive_b_max_mbs_per_frame": 32400,
-            // maximum width for default adaptive b-frame enablement case
-            // Max Width=3840, Max Height=3840
-            "enc_adaptive_b_max_width": 3840,
-            // maximum MB/sec for default Hier-B enablement case
-            // 1920x1088@60fps
-            "enc_hier_b_max_mbs_per_sec": 489600,
-            // maximum MB/frame for default Hier-B enablement case
-            // 1920x1088/256
-            "enc_hier_b_max_mbs_per_frame": 8160,
-            // maximum width for default Hier-B enablement case
-            // Max Width=1920, Max Height=1920
-            "enc_hier_b_max_width": 1920,
+            "enc_default_bframe_count": 0,
+            // maximum MB/sec for default B frame enablement case
+            "enc_max_b_frame_mbs_per_sec": 0,
             // maximum decoder output rate if it is Nuplayer path and
             // player sets max refresh rate
             "max_supported_render_rate": 120,
@@ -78,7 +64,7 @@
             //  0x1: enable 8 bit: linear format. 10 bit: compressed format
             //  0x2: 8 bit: compressed format. 10 bit: linear format
             //  0x3: 8 bit: linear format. 10 bit: linear format
-            "enc_linear_color_format": 0,
+            "enc_linear_color_format": 3,
             // override chroma qp offset value for 8 and 10 bits:
             // default: 0
             // allowed override value: -12
@@ -90,19 +76,12 @@
             //  0x1: 8 bit: enable.  10 bit: disable
             //  0x2: 8 bit: disable. 10 bit: enable
             //  0x3: 8 bit: enable.  10 bit: enable
-            "enc_bitrate_savings": 3,
+            "enc_bitrate_savings": 1,
             // minimum encoder bitrate boost
-            "enc_bitrate_boost": 25,
-            // maximum and minimum QPs for Encoders
-            // default: 10 - 40
-            // allowed override value: 0 - 51
-            "enc_bitrate_boost_qp_min": 10,
-            "enc_bitrate_boost_qp_max": 40,
-            // additional buffers to be added while computing pipeline delays
-            "pipeline_extra_output_buffers": 2,
+            "enc_bitrate_boost": 15,
             // time threshold of output buffer allocation loop since last input buffer queued(ms)
             // 0 --> no such limitation (loop until allocation done)
-            "max_retry_alloc_output_timeout": 1000,
+            "max_retry_alloc_output_timeout": 0,
             // override default primaries to BT709 for >=UHD decode
             "default_primaries_override" : 0,
 
@@ -115,18 +94,14 @@
             // maximum LTR cont for encoder
             "ltr_max_count": 2,
             // Encoder preprocessing: maximum encoder downscalar factor possible in width or height or both direction
-            "preprocess_max_downscale_factor": 8,
+            "preprocess_max_downscale_factor": 0,
             // encoder support rotation as preprocessing
             "preprocess_rotation": 1,
-            // encoder Hier-P maximum layer count: 6
-            "enc_hier_p_max_temporal_layer_count": 6,
-            // encoder Hier-B maximum layer count: 4
-            "enc_hier_b_max_temporal_layer_count": 4
+            // encoder maxium Hier-P layer count: 6
+            "max_temporal_layer_pframe_count": 6,
+            // encoder maximum Hier-B layer count: 0
+            "max_temporal_layer_bframe_count": 0
         },
-        // list of codec plugin libraries to be loaded into codec registry
-        "QC2CodecPlugins": [
-            "libqc2vppfilter.so"
-        ],
 
         // List of HW codecs enabled for this target
         "codecs-available": {
@@ -138,22 +113,13 @@
                 "c2.qti.hevc.decoder.low_latency",
                 "c2.qti.hevc.decoder.secure",
                 "c2.qti.vp9.decoder",
-                "c2.qti.vp9.decoder.secure",
-                "c2.qti.mpeg2.decoder"
+                "c2.qti.vp9.decoder.secure"
             ],
             "encoders": [
                 "c2.qti.avc.encoder",
-                "c2.qti.avc.encoder.secure",
                 "c2.qti.hevc.encoder",
-                "c2.qti.hevc.encoder.secure",
                 "c2.qti.hevc.encoder.cq",
                 "c2.qti.heic.encoder"
-            ]
-        },
-        "filters-available": {
-            "filters": [
-                "c2.qti.vpp.filter",
-                "c2.qti.vpp.filter.secure"
             ]
         }
     }

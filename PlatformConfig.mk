@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Platform
+PRODUCT_PLATFORM := holi
+
 TARGET_ARCH_VARIANT := armv8-2a
 TARGET_CPU_ABI := arm64-v8a
 # Switch to Cortex-A77 when it becomes available!
@@ -28,7 +31,7 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3
 
-TARGET_RECOVERY_WIPE := $(PLATFORM_COMMON_PATH)/rootdir/recovery.wipe
+# Recovery
 TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/fstab.qcom
 
 # SELinux
@@ -41,20 +44,14 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 # Build a separate vendor.img
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_JOURNAL_SIZE := 0
-BOARD_VENDORIMAGE_EXTFS_INODE_COUNT := 4096
 
 # Build product image
 TARGET_COPY_OUT_PRODUCT := product
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_PRODUCTIMAGE_JOURNAL_SIZE := 0
-BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT := 4096
 
 # Build system_ext image
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_SYSTEM_EXTIMAGE_JOURNAL_SIZE := 0
-BOARD_SYSTEM_EXTIMAGE_EXTFS_INODE_COUNT := 4096
 
 # This platform has a metadata partition: declare this
 # to create a mount point for it
@@ -69,9 +66,6 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # This target has no recovery partition
 BOARD_USES_RECOVERY_AS_BOOT := true
-
-# DTBO partition definitions
-TARGET_NEEDS_DTBOIMAGE ?= true
 
 # Audio
 AUDIO_FEATURE_ENABLED_GKI := true

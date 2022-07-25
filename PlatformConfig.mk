@@ -15,15 +15,12 @@
 # Platform
 PRODUCT_PLATFORM := holi
 
-TARGET_ARCH_VARIANT := armv8-2a
-TARGET_CPU_ABI := arm64-v8a
-# Switch to Cortex-A77 when it becomes available!
-TARGET_CPU_VARIANT_RUNTIME := generic
+TARGET_ARCH_VARIANT := armv8-2a-dotprod
+TARGET_CPU_VARIANT := cortex-a76
+TARGET_CPU_VARIANT_RUNTIME := cortex-a76
 
 TARGET_2ND_ARCH_VARIANT := armv8-2a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-# Switch to Cortex-A77 when it becomes available!
-TARGET_2ND_CPU_VARIANT_RUNTIME := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096

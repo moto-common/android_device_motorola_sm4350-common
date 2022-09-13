@@ -6,12 +6,14 @@
       "Values": [
         "9999999",
         "1804800",
-        "1612800",
-        "1420800",
-        "1305600",
-        "1017600",
-        "864000",
-        "614400",
+        "1708800",
+        "1574400",
+        "1478400",
+        "1324800",
+        "1190400",
+        "940800",
+        "710400",
+        "576000",
         "300000"
       ],
       "DefaultIndex": 0,
@@ -23,75 +25,74 @@
       "Values": [
         "9999999",
         "1804800",
-        "1612800",
-        "1420800",
-        "1305600",
-        "1017600",
-        "864000",
-        "614400",
+        "1708800",
+        "1574400",
+        "1478400",
+        "1324800",
+        "1190400",
+        "940800",
+        "710400",
+        "576000",
         "300000"
       ],
       "ResetOnInit": true
     },
     {
       "Name": "CPUBigClusterMaxFreq",
-      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq",
+      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq",
       "Values": [
         "9999999",
-        "1612800",
+        "2035200",
+        "1804800",
+        "1651200",
         "1536000",
         "1401600",
-        "1056000",
-        "902400",
-        "652800",
-        "300000"
+        "1248000",
+        "1017600",
+        "979200",
+        "768000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
       "Name": "CPUBigClusterMinFreq",
-      "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq",
+      "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
-        "1612800",
+        "2035200",
+        "1804800",
+        "1651200",
         "1536000",
         "1401600",
-        "1056000",
-        "902400",
-        "652800",
-        "300000"
+        "1248000",
+        "1017600",
+        "979200",
+        "768000"
       ],
       "ResetOnInit": true
     },
     {
       "Name": "GPUMaxFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/max_pwrlevel",
+      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
       "Values": [
-        "0",
-        "1",
-        "2",
+        "650000000",
+        "565000000",
+        "430000000",
+        "355000000",
+        "253000000"
       ],
-      "Comments": [
-        "0 => 600000000",
-        "1 => 465000000",
-        "2 => 320000000"
-      ],
-      "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
       "Name": "GPUMinFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/min_pwrlevel",
+      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
-        "0",
-        "1",
-        "2",
-      ],
-      "Comments": [
-        "0 => 600000000",
-        "1 => 465000000",
-        "2 => 320000000"
+        "650000000",
+        "565000000",
+        "430000000",
+        "355000000",
+        "253000000"
       ],
       "ResetOnInit": true
     },
@@ -123,25 +124,7 @@
       "ResetOnInit": true
     },
     {
-      "Name": "TASchedtuneBoost",
-      "Path": "/dev/stune/top-app/schedtune.boost",
-      "Values": [
-        "30",
-        "10"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "TASchedtuneHighCap",
-      "Path": "/dev/stune/top-app/schedtune.prefer_high_cap",
-      "Values": [
-        "1",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUBWHystTriggerCount",
+      "Name": "CPUDDRBWHystTriggerCount",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/hyst_trigger_count",
       "Values": [
         "0",
@@ -150,7 +133,7 @@
       "ResetOnInit": true
     },
     {
-      "Name": "CPUBWHistMemory",
+      "Name": "CPUDDRBWHistMemory",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/hist_memory",
       "Values": [
         "0",
@@ -159,7 +142,7 @@
       "ResetOnInit": true
     },
     {
-      "Name": "CPUBWHystLength",
+      "Name": "CPUDDRBWHystLength",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/hyst_length",
       "Values": [
         "0",
@@ -168,7 +151,7 @@
       "ResetOnInit": true
     },
     {
-      "Name": "CPUBWSampleMs",
+      "Name": "CPUDDRBWSampleMs",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/sample_ms",
       "Values": [
         "10",
@@ -177,7 +160,7 @@
       "ResetOnInit": true
     },
     {
-      "Name": "CPUBWIOPercent",
+      "Name": "CPUDDRBWIOPercent",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/io_percent",
       "Values": [
         "80",
@@ -186,7 +169,7 @@
       "ResetOnInit": true
     },
     {
-      "Name": "CPUBWUseAb",
+      "Name": "CPUDDRBWUseAb",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/bw_hwmon/use_ab",
       "Values": [
         "0",
@@ -195,53 +178,56 @@
       "ResetOnInit": true
     },
     {
-      "Name": "CPUBWMinFreq",
+      "Name": "CPUDDRBWMinFreq",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu-cpu-ddr-bw/devfreq/soc:qcom,cpu-cpu-ddr-bw/min_freq",
       "Values": [
-        "13763",
-        "11863",
-        "10322",
-        "7759",
-        "5859",
-        "5195",
-        "4173",
-        "3440",
-        "2288",
-        "1525"
+        "7980",
+        "6881",
+        "5931",
+        "5161",
+        "3879",
+        "2929",
+        "2597",
+        "2086",
+        "1720",
+        "1144",
+        "762"
       ],
       "ResetOnInit": true
     },
     {
-      "Name": "DDRLittleClusterMinFreq",
+      "Name": "CPUDDRLatLittleClusterMinFreq",
       "Path": "/sys/devices/platform/soc/soc:qcom,cpu0-cpu-ddr-lat/devfreq/soc:qcom,cpu0-cpu-ddr-lat/min_freq",
       "Values": [
-        "13763",
-        "11863",
-        "10322",
-        "7759",
-        "5859",
-        "5195",
-        "4173",
-        "3440",
-        "2288",
-        "1525"
+        "7980",
+        "6881",
+        "5931",
+        "5161",
+        "3879",
+        "2929",
+        "2597",
+        "2086",
+        "1720",
+        "1144",
+        "762"
       ],
       "ResetOnInit": true
     },
     {
-      "Name": "DDRBigClusterMinFreq",
-      "Path": "/sys/devices/platform/soc/soc:qcom,cpu4-cpu-ddr-lat/devfreq/soc:qcom,cpu4-cpu-ddr-lat/min_freq",
+      "Name": "CPUDDRLatBigClusterMinFreq",
+      "Path": "/sys/devices/platform/soc/soc:qcom,cpu6-cpu-ddr-lat/devfreq/soc:qcom,cpu6-cpu-ddr-lat/min_freq",
       "Values": [
-        "13763",
-        "11863",
-        "10322",
-        "7759",
-        "5859",
-        "5195",
-        "4173",
-        "3440",
-        "2288",
-        "1525"
+        "7980",
+        "6881",
+        "5931",
+        "5161",
+        "3879",
+        "2929",
+        "2597",
+        "2086",
+        "1720",
+        "1144",
+        "762"
       ],
       "ResetOnInit": true
     },
@@ -302,19 +288,13 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1056000"
+      "Value": "1536000"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "1305600"
-    },
-    {
-      "PowerHint": "SUSTAINED_PERFORMANCE",
-      "Node": "GPUMaxFreq",
-      "Duration": 0,
-      "Value": "1"
+      "Value": "1478400"
     },
     {
       "PowerHint": "INTERACTION",
@@ -324,51 +304,33 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "TASchedtuneBoost",
-      "Duration": 0,
-      "Value": "30"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "TASchedtuneHighCap",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUBWHystTriggerCount",
+      "Node": "CPUDDRBWHystTriggerCount",
       "Duration": 0,
       "Value": "0"
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "CPUBWHystLength",
+      "Node": "CPUDDRBWHystLength",
       "Duration": 0,
       "Value": "0"
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "CPUBWHistMemory",
+      "Node": "CPUDDRBWHistMemory",
       "Duration": 0,
       "Value": "0"
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "CPUBWMinFreq",
+      "Node": "CPUDDRBWMinFreq",
       "Duration": 0,
-      "Value": "10322"
+      "Value": "5931"
     },
     {
       "PowerHint": "DEVICE_IDLE",
       "Node": "F2fsRecessModeEnable",
       "Duration": 0,
       "Value": "2"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "TASchedtuneHighCap",
-      "Duration": 5000,
-      "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
@@ -386,7 +348,7 @@
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 5000,
-      "Value": "1305600"
+      "Value": "1804800"
     },
     {
       "PowerHint": "LAUNCH",
@@ -396,27 +358,27 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "CPUBWHystTriggerCount",
+      "Node": "CPUDDRBWHystTriggerCount",
       "Duration": 5000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "CPUBWHystLength",
+      "Node": "CPUDDRBWHystLength",
       "Duration": 5000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "CPUBWHistMemory",
+      "Node": "CPUDDRBWHistMemory",
       "Duration": 5000,
       "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "CPUBWMinFreq",
+      "Node": "CPUDDRBWMinFreq",
       "Duration": 5000,
-      "Value": "13763"
+      "Value": "7980"
     },
     {
       "PowerHint": "LAUNCH",
@@ -438,15 +400,27 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "DDRLittleClusterMinFreq",
+      "Node": "GPUMaxFreq",
       "Duration": 5000,
-      "Value": "13763"
+      "Value": "650000000"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "DDRBigClusterMinFreq",
+      "Node": "GPUMinFreq",
       "Duration": 5000,
-      "Value": "13763"
+      "Value": "650000000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUDDRLatLittleClusterMinFreq",
+      "Duration": 5000,
+      "Value": "7980"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUDDRLatBigClusterMinFreq",
+      "Duration": 5000,
+      "Value": "7980"
     },
     {
       "PowerHint": "AUDIO_LAUNCH",
@@ -471,18 +445,6 @@
       "Node": "PowerHALRenderingState",
       "Duration": 0,
       "Value": "EXPENSIVE_RENDERING"
-    },
-    {
-      "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "GPUMinFreq",
-      "Duration": 0,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "GPUMaxFreq",
-      "Duration": 0,
-      "Value": "0"
     },
     {
       "PowerHint": "ML_ACC",
@@ -513,18 +475,6 @@
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
       "Value": "9999999"
-    },
-    {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "GPUMaxFreq",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "GPUMinFreq",
-      "Duration": 0,
-      "Value": "0"
     }
   ]
 }

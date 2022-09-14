@@ -52,13 +52,6 @@
             <Limit name="measured-frame-rate-1920x1080" range="220-800" />
             <Limit name="measured-frame-rate-3840x2160" range="67-240" />
         </MediaCodec>
-        <MediaCodec name="c2.qti.vp9.decoder" type="video/x-vnd.on2.vp9" update="true">
-            <Limit name="measured-frame-rate-320x180" range="415-1700" />
-            <Limit name="measured-frame-rate-640x360" range="265-1600" />
-            <Limit name="measured-frame-rate-1280x720" range="142-450" />
-            <Limit name="measured-frame-rate-1920x1080" range="130-450" />
-            <Limit name="measured-frame-rate-3840x2160" range="39-255" />
-        </MediaCodec>
         <!-- TODO: add C2 mpeg2 decoder performance data -->
 
         <!-- C2 SW codecs -->

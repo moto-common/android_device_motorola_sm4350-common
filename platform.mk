@@ -184,6 +184,10 @@ PRODUCT_USES_PIXEL_POWER_HAL := true
 PRODUCT_COPY_FILES += \
     $(MOTOROLA_ROOT)/vendor/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
+# Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.default_network=27,10
+
 $(call inherit-product, device/motorola/common/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, vendor/motorola/sm4350-common/sm4350-common-vendor.mk)

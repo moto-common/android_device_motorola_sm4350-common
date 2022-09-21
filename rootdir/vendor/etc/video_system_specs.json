@@ -112,6 +112,7 @@
                 "c2.qti.hevc.decoder",
                 "c2.qti.hevc.decoder.low_latency",
                 "c2.qti.hevc.decoder.secure",
+                "c2.qti.vp9.decoder",
                 "c2.qti.vp9.decoder.secure"
             ],
             "encoders": [

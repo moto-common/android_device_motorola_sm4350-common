@@ -95,6 +95,10 @@ PRODUCT_COPY_FILES += \
      frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
 # Audio
+# Enable Fluence NN Algo
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.vendor.audio.sdk.fluence.nn.enabled=true
+
 PRODUCT_COPY_FILES += \
     $(MOTOROLA_ROOT)/vendor/etc/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     $(MOTOROLA_ROOT)/vendor/etc/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \

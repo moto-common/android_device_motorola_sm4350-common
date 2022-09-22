@@ -327,6 +327,18 @@
       "Value": "5931"
     },
     {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUMaxFreq",
+      "Duration": 0,
+      "Value": "430000000"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "GPUMinFreq",
+      "Duration": 0,
+      "Value": "430000000"
+    },
+    {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 5000,

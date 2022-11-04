@@ -24,9 +24,10 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
+BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_RAMDISK_OFFSET     := 0x01000000
 
-BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3 hw_warmreset_enable=1
 
 # Recovery
 TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/fstab.qcom

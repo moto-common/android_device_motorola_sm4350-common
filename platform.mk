@@ -175,6 +175,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.gatekeeper.disable_spu=true
 
 # Init
+PRODUCT_PACKAGES += \
+    init.sm4350
+
 PRODUCT_COPY_FILES += \
     device/qcom/common/vendor/init/holi/bin/init.kernel.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot.sh
 
@@ -193,6 +196,10 @@ PRODUCT_COPY_FILES += \
 # Telephony
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=27,27
+
+# Modules
+PRODUCT_COPY_FILES += \
+    $(MOTOROLA_ROOT)/vendor/lib/modules/modules.blacklist:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.blacklist
 
 $(call inherit-product, device/motorola/common/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)

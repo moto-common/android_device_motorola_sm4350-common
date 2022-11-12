@@ -1,3 +1,5 @@
+# From denver S2RE32.29-16-1 unless pinned otherwise
+
 # ACDB Loader
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
@@ -26,25 +28,6 @@ vendor/firmware/a619_gmu.bin
 vendor/firmware/a630_sqe.fw
 vendor/firmware/a660_gmu.bin
 vendor/firmware/a660_sqe.fw
-
-# Fingerprint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-chipone
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-fpc
-vendor/bin/hw/chipone_ident
-vendor/bin/hw/fpc_ident
-vendor/bin/fpc_tee_test
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-chipone2.rc
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-fpc2.rc
--vendor/etc/vintf/manifest/manifest_IMoto_Fingerprint.xml
-vendor/lib/hw/chipone.fingerprint.default.so
-vendor/lib/com.motorola.hardware.biometric.fingerprint@1.0.so
-vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
-vendor/lib64/hw/chipone.fingerprint.default.so
-vendor/lib64/com.fingerprints.extension@1.0.so
-vendor/lib64/com.motorola.hardware.biometric.fingerprint@1.0.so
-vendor/lib64/libfp_ext_svc2.so
-vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so
-vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # CNE
 #vendor/app/CneApp/lib/arm64/libvndfwk_detect_jni.qti.so

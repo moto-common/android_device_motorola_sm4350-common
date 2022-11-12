@@ -69,6 +69,6 @@ AUDIO_FEATURE_ENABLED_GKI := true
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(PLATFORM_COMMON_PATH)/vintf/manifest.xml
-DEVICE_MATRIX_FILE += $(PLATFORM_COMMON_PATH)/vintf/compatibility_manifest.xml
+DEVICE_MATRIX_FILE += $(PLATFORM_COMMON_PATH)/vintf/compatibility_matrix.xml
 
 include device/motorola/common/CommonConfig.mk

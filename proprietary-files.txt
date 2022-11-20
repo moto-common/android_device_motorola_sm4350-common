@@ -606,9 +606,3 @@ vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 # Sensor Configs
 vendor/etc/sensors/hals.conf
-
-# Sensors
-vendor/lib/sensors.moto.so
-vendor/lib/sensors.ssc.so
-vendor/lib64/sensors.moto.so
-vendor/lib64/sensors.ssc.so

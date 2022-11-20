@@ -175,6 +175,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.gatekeeper.disable_spu=true
 
 # Init
+PRODUCT_PACKAGES += \
+    init.sm4350
+
 PRODUCT_COPY_FILES += \
     device/qcom/common/vendor/init/holi/bin/init.kernel.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot.sh
 

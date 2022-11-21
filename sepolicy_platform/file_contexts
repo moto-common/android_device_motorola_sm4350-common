@@ -2,3 +2,6 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-chipone u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-goodixservice u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-fpc u:object_r:hal_fingerprint_default_exec:s0
+
+# FSG
+/dev/block/platform/soc/4804000.ufshc/by-name/fsg_[ab] u:object_r:vendor_modem_efs_partition_device:s0

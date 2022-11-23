@@ -32,6 +32,7 @@ BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3
 TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/fstab.qcom
 
 # SELinux
+BOARD_USE_ENFORCING_SELINUX := true
 BOARD_VENDOR_SEPOLICY_DIRS += $(PLATFORM_COMMON_PATH)/sepolicy_platform
 
 # Boot Image Header

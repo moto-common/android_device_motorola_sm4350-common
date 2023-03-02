@@ -135,10 +135,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(MOTOROLA_ROOT)/vendor/etc/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
-# Platform specific init
-PRODUCT_PACKAGES += \
-    ueventd
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.holi

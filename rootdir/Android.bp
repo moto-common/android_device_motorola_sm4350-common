@@ -1,0 +1,13 @@
+prebuilt_etc {
+    name: "fstab.qcom",
+    src: "vendor/etc/fstab.qcom",
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+}
+
+prebuilt_etc {
+    name: "init.sm4350",
+    src: "vendor/etc/init/init.sm4350.rc",
+    sub_dir: "init",
+    vendor: true,
+}

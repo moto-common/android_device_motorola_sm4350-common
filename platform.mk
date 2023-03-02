@@ -30,10 +30,6 @@ PRODUCT_VENDOR_KERNEL_HEADERS := device/motorola/sm4350-common-kernel/kernel-hea
 # Rootdir Path
 MOTOROLA_ROOT := $(PLATFORM_COMMON_PATH)/rootdir
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    $(PLATFORM_COMMON_PATH)/overlay
-
 # Camera
 TARGET_USES_64BIT_CAMERA := true
 

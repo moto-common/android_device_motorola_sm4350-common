@@ -3,6 +3,7 @@ prebuilt_etc {
     src: "vendor/etc/fstab.qcom",
     ramdisk_available: true,
     vendor_ramdisk_available: true,
+    vendor: true,
 }
 
 prebuilt_etc {

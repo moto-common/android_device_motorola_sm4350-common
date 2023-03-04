@@ -12,49 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Platform
-PRODUCT_PLATFORM := holi
-
+# Arch
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_VARIANT := cortex-a76
 TARGET_CPU_VARIANT_RUNTIME := cortex-a76
-
 TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 
-BOARD_KERNEL_BASE        := 0x00000000
-BOARD_KERNEL_PAGESIZE    := 4096
-BOARD_RAMDISK_OFFSET     := 0x01000000
+# Audio
+AUDIO_FEATURE_ENABLED_GKI := true
 
-BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3
-
-# Recovery
-TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/fstab.qcom
-
-# SELinux
-BOARD_USE_ENFORCING_SELINUX := true
-BOARD_VENDOR_SEPOLICY_DIRS += $(PLATFORM_COMMON_PATH)/sepolicy_platform
-
-# Boot Image Header
-BOARD_BOOT_HEADER_VERSION := 3
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-
-# Build a separate vendor.img
-TARGET_COPY_OUT_VENDOR := vendor
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-
-# Build product image
-TARGET_COPY_OUT_PRODUCT := product
-BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
-
-# Build system_ext image
-TARGET_COPY_OUT_SYSTEM_EXT := system_ext
-BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
-
-# This platform has a metadata partition: declare this
-# to create a mount point for it
-BOARD_USES_METADATA_PARTITION := true
-
+# AVB
 BOARD_AVB_ENABLE := true
 BOARD_AVB_VBMETA_SYSTEM := system
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH ?= external/avb/test/data/testkey_rsa2048.pem
@@ -62,11 +30,31 @@ BOARD_AVB_VBMETA_SYSTEM_ALGORITHM ?= SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
+# Boot Image Header
+BOARD_BOOT_HEADER_VERSION := 3
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+
+# FSTab
+TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/fstab.qcom
+
+# Kernel
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3
+BOARD_KERNEL_IMAGE_NAME := Image
+
+# SELinux
+BOARD_USE_ENFORCING_SELINUX := true
+BOARD_VENDOR_SEPOLICY_DIRS += $(PLATFORM_COMMON_PATH)/sepolicy
+
+# Partitions
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
+TARGET_COPY_OUT_VENDOR := vendor
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+
 # This target has no recovery partition
 BOARD_USES_RECOVERY_AS_BOOT := true
-
-# Audio
-AUDIO_FEATURE_ENABLED_GKI := true
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(PLATFORM_COMMON_PATH)/vintf/manifest.xml

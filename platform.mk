@@ -51,7 +51,7 @@ PRODUCT_COPY_FILES += \
     $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
 
 # Dynamic Partitions
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+TARGET_USES_DYNAMIC_PARTITIONS := true
 
 # FPSensor Gestures
 PRODUCT_COPY_FILES += \

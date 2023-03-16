@@ -1,16 +1,20 @@
+# LEDs
+genfscon sysfs /devices/platform/soc/soc:indicator_led u:object_r:sysfs_leds:s0
+
 # Misc Charger
-genfscon sysfs /devices/platform/soc/4c88000.i2c/i2c-2/2-006f/power_supply/cp-standalone u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/4c88000.i2c/i2c-1/1-003b u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/4c88000.i2c/i2c-1/1-0064 u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/4c88000.i2c/i2c-2/2-006f u:object_r:vendor_sysfs_battery_supply:s0
 
 # SMBCharger
-genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5/power_supply/qcom_battery u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5 u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-04/1c40000.qcom,spmi:qcom,pmr735a@4:vadc@3600 u:object_r:vendor_sysfs_battery_supply:s0
 
 # SMBCharger MMI
-genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/power_supply/mmi_battery u:object_r:vendor_sysfs_battery_supply:s0
-genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/power_supply/battery u:object_r:vendor_sysfs_battery_supply:s0
-genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/iio:device5 u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:mmi,charger u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:mmi_chrg_manager u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:mmi,discrete-charging u:object_r:vendor_sysfs_battery_supply:s0
 
-# SMBCharger IIO
-genfscon sysfs /devices/platform/soc/4c88000.i2c/i2c-2/2-006f/iio:device5 u:object_r:vendor_sysfs_battery_supply:s0
-genfscon sysfs /devices/platform/soc/1c40000.qcom,spmi/spmi-0/spmi0-02/1c40000.qcom,spmi:qcom,pm7250b@2:qcom,qpnp-smb5-mmi/iio:device6 u:object_r:vendor_sysfs_battery_supply:s0
-genfscon sysfs /devices/platform/soc/soc:mmi_chrg_manager/power_supply/mmi_chrg_manager u:object_r:vendor_sysfs_battery_supply:s0
-genfscon sysfs /devices/platform/soc/soc:mmi_chrg_manager/iio:device7 u:object_r:vendor_sysfs_battery_supply:s0
+# Vibrator
+genfscon sysfs /devices/platform/soc/soc:ldo_vib u:object_r:sysfs_vibrator:s0

@@ -88,8 +88,14 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_USES_PIXEL_POWER_HAL := true
 
-PRODUCT_COPY_FILES += \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+## Powerhint
+ifneq ($(TARGET_IS_BLAIR),true)
+  PRODUCT_COPY_FILES += \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+else
+  PRODUCT_COPY_FILES += \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/powerhint_blair.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+endif
 
 # QCOM Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \

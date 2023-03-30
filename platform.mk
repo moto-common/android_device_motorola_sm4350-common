@@ -78,8 +78,19 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/video_system_specs.json:$(TARGET_COPY_OUT_VENDOR)/etc/video_system_specs.json
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
+
+ifneq ($(TARGET_IS_BLAIR),true)
+  PRODUCT_COPY_FILES += \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_holi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_holi.xml \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_performance_holi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_holi.xml \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/video_system_specs.json:$(TARGET_COPY_OUT_VENDOR)/etc/video_system_specs.json
+else
+  PRODUCT_COPY_FILES += \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_blair.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_blair.xml \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_performance_blair.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_blair.xml \
+      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/video_system_specs_blair.json:$(TARGET_COPY_OUT_VENDOR)/etc/video_system_specs.json
+endif
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \

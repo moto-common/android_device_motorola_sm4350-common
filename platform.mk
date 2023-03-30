@@ -77,9 +77,6 @@ PRODUCT_PACKAGES += \
     init.sm4350
 
 # Media
-PRODUCT_COPY_FILES += \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
-
 ifneq ($(TARGET_IS_BLAIR),true)
   PRODUCT_COPY_FILES += \
       $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_holi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_holi.xml \

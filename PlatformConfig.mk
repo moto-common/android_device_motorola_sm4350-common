@@ -35,7 +35,7 @@ BOARD_BOOT_HEADER_VERSION := 3
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # FSTab
-TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB ?= $(PLATFORM_COMMON_PATH)/rootdir/fstab.qcom
 
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3

@@ -40,80 +40,23 @@ AB_OTA_PARTITIONS += \
     vbmeta_system
 
 # Audio
-# Enable Fluence NN Algo
+## Enable Fluence NN Algo
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.audio.sdk.fluence.nn.enabled=true
 
-PRODUCT_COPY_FILES += \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
-
 # Dynamic Partitions
 TARGET_USES_DYNAMIC_PARTITIONS := true
-
-# FPSensor Gestures
-PRODUCT_COPY_FILES += \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/usr/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/usr/keylayout/uinput-fpsensor.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpsensor.kl \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/usr/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/usr/idc/uinput-fpsensor.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpsensor.idc
 
 # Gatekeeper
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.gatekeeper.disable_spu=true
 
-# Graphics
-PRODUCT_COPY_FILES += \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/display/DPU660.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU660.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/display/DPU670.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU670.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/display/DPU720.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU720.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/display/DPU7__.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU7__.xml \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/display/advanced_sf_offsets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/advanced_sf_offsets.xml
-
-# Init
-PRODUCT_PACKAGES += \
-    init.sm4350
-
-# Media
-ifneq ($(TARGET_IS_BLAIR),true)
-  PRODUCT_COPY_FILES += \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_holi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_holi.xml \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_performance_holi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_holi.xml \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/video_system_specs.json:$(TARGET_COPY_OUT_VENDOR)/etc/video_system_specs.json
-else
-  PRODUCT_COPY_FILES += \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_blair.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_blair.xml \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/media_codecs_performance_blair.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_blair.xml \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/video_system_specs_blair.json:$(TARGET_COPY_OUT_VENDOR)/etc/video_system_specs.json
-endif
-
-# MSM IRQ Balancer configuration file
-PRODUCT_COPY_FILES += \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
-
 # Power
 PRODUCT_USES_PIXEL_POWER_HAL := true
-
-## Powerhint
-ifneq ($(TARGET_IS_BLAIR),true)
-  PRODUCT_COPY_FILES += \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-else
-  PRODUCT_COPY_FILES += \
-      $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/powerhint_blair.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
-endif
 
 # QCOM Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.qcom.bluetooth.soc=cherokee
-
-# Qualcomm WiFi Configuration
-PRODUCT_COPY_FILES += \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/etc/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(PLATFORM_COMMON_PATH)/rootdir/vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
 # Telephony
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -73,26 +73,21 @@
       "ResetOnInit": true
     },
     {
-      "Name": "GPUMaxFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
-      "Values": [
-        "650000000",
-        "565000000",
-        "430000000",
-        "355000000",
-        "253000000"
-      ],
-      "ResetOnInit": true
-    },
-    {
       "Name": "GPUMinFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/min_pwrlevel",
       "Values": [
-        "650000000",
-        "565000000",
-        "430000000",
-        "355000000",
-        "253000000"
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "Comments": [
+        "0 => 650000000",
+        "1 => 565000000",
+        "2 => 430000000",
+        "3 => 355000000",
+        "4 => 253000000"
       ],
       "ResetOnInit": true
     },
@@ -328,15 +323,9 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "GPUMaxFreq",
-      "Duration": 0,
-      "Value": "430000000"
-    },
-    {
-      "PowerHint": "INTERACTION",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "430000000"
+      "Value": "1"
     },
     {
       "PowerHint": "LAUNCH",
@@ -406,15 +395,9 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "GPUMaxFreq",
-      "Duration": 5000,
-      "Value": "650000000"
-    },
-    {
-      "PowerHint": "LAUNCH",
       "Node": "GPUMinFreq",
       "Duration": 5000,
-      "Value": "650000000"
+      "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",

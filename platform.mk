@@ -45,6 +45,9 @@ AB_OTA_PARTITIONS += \
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.vendor.audio.sdk.fluence.nn.enabled=true
 
+# Device characteristics
+DEVICE_CHARACTERISTICS += ufs
+
 # Dynamic Partitions
 TARGET_USES_DYNAMIC_PARTITIONS := true
 

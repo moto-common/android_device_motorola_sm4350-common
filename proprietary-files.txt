@@ -240,7 +240,6 @@ system_ext/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 -system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -vendor/app/CACertService/CACertService.apk
 vendor/bin/hw/qcrilNrd
-vendor/bin/ATFWD-daemon
 vendor/bin/adpl
 vendor/bin/diag-router
 vendor/bin/mbm_spy
@@ -301,7 +300,6 @@ vendor/etc/qcril_database/upgrade/other/2_version_add_wps_config_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/3_version_update_wps_config_qcrilnr.sql
 vendor/etc/qcril_database/upgrade/other/6_version_change_property_table_qcrilnr.sql
 vendor/etc/qcril_database/qcrilNr.db
-vendor/etc/seccomp_policy/atfwd@2.0.policy
 vendor/etc/seccomp_policy/qcrilnr@2.0.policy
 vendor/etc/seccomp_policy/qti-systemd.policy
 vendor/etc/simlock_template.dat
